@@ -1,0 +1,33 @@
+{
+  "name": "scrapeflow",
+  "version": "0.1.0",
+  "description": "Point-and-click web data extraction",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "archiver": "^7.0.1",
+    "canvas": "^3.2.1",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0",
+    "vite-plugin-web-extension": "^4.1.0",
+    "yauzl": "^3.2.0"
+  },
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@uiw/codemirror-theme-vscode": "^4.21.21",
+    "@uiw/react-codemirror": "^4.21.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

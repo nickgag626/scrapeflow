@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapeFlow - Web Data Extraction Made Simple</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .logo {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tagline {
+      font-size: 24px;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      margin-top: 32px;
+      transition: all 0.2s;
+    }
+    .cta-button:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      padding: 60px 0;
+    }
+    .feature {
+      background: rgba(30, 41, 59, 0.5);
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    .feature h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #f8fafc;
+    }
+    .feature p {
+      color: #94a3b8;
+    }
+    .pricing {
+      text-align: center;
+      padding: 60px 0;
+    }
+    .pricing h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+    .pricing-cards {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .pricing-card {
+      background: rgba(30, 41, 59, 0.5);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      width: 300px;
+    }
+    .pricing-card.popular {
+      border-color: #3b82f6;
+      transform: scale(1.05);
+    }
+    .price {
+      font-size: 48px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 16px 0;
+    }
+    .price span {
+      font-size: 16px;
+      color: #64748b;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #334155;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">🕸️</div>
+      <h1>ScrapeFlow</h1>
+      <p class="tagline">
+        Point-and-click web scraping. Extract data from any website to CSV/JSON. 
+        No coding required.
+      </p>
+      <a href="#" class="cta-button">Add to Chrome - It's Free</a>
+    </header>
+
+    <section class="features">
+      <div class="feature">
+        <div class="feature-icon">👆</div>
+        <h3>Point & Click</h3>
+        <p>Click any element and we automatically find all similar items. No CSS selectors to write.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📄</div>
+        <h3>Multi-Page Support</h3>
+        <p>Scrape paginated data with click pagination, infinite scroll, or URL patterns.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <h3>Export Anywhere</h3>
+        <p>Download as CSV for Excel/Google Sheets or JSON for developers.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>All processing happens in your browser. Your data never leaves your computer.</p>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <h2>Simple Pricing</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="price">$0</div>
+          <p>✓ Unlimited single-page scraping</p>
+          <p>✓ CSV/JSON export</p>
+          <p>✓ All templates</p>
+        </div>
+        <div class="pricing-card popular">
+          <h3>Pro</h3>
+          <div class="price">$19<span>/mo</span></div>
+          <p>✓ Everything in Free</p>
+          <p>✓ Multi-page scraping</p>
+          <p>✓ Scheduled runs</p>
+          <p>✓ API access</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 ScrapeFlow. The Octoparse alternative.</p>
+      <p><a href="PRIVACY_POLICY.md" style="color: #64748b;">Privacy Policy</a></p>
+    </footer>
+  </div>
+</body>
+</html>
