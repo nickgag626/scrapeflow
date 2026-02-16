@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapeFlow Screenshot - Templates</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      width: 380px;
+      min-height: 500px;
+      padding: 16px;
+    }
+    .btn {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-secondary { background: #334155; color: #e2e8f0; }
+    .template-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .template-card:hover {
+      border-color: #3b82f6;
+    }
+    .template-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .template-icon {
+      font-size: 28px;
+    }
+    .template-info {
+      flex: 1;
+    }
+    .template-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .template-desc {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .template-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .column-tag {
+      background: #0f172a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      color: #e2e8f0;
+    }
+    .use-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .category-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .category-tab {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .category-tab.active {
+      background: #334155;
+      color: #e2e8f0;
+    }
+    .category-tab:not(.active) {
+      background: transparent;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+    <button class="btn btn-secondary">← Back</button>
+    <h2 style="margin: 0; font-size: 16px;">Templates</h2>
+  </div>
+
+  <div class="category-tabs">
+    <span class="category-tab active">📋 All</span>
+    <span class="category-tab">🛒 E-Commerce</span>
+    <span class="category-tab">🏠 Real Estate</span>
+    <span class="category-tab">💼 Jobs</span>
+    <span class="category-tab">📰 News</span>
+  </div>
+
+  <div class="template-card">
+    <div class="template-header">
+      <div class="template-icon">🛒</div>
+      <div class="template-info">
+        <div class="template-name">Amazon Product Listings</div>
+        <div class="template-desc">Extract product names, prices, ratings from Amazon search results</div>
+        <div class="template-columns">
+          <span class="column-tag">Title</span>
+          <span class="column-tag">Price</span>
+          <span class="column-tag">Rating</span>
+          <span class="column-tag">Reviews</span>
+          <span class="column-tag">Prime</span>
+        </div>
+      </div>
+      <div class="use-btn">Use →</div>
+    </div>
+  </div>
+
+  <div class="template-card">
+    <div class="template-header">
+      <div class="template-icon">🏠</div>
+      <div class="template-info">
+        <div class="template-name">Zillow Real Estate</div>
+        <div class="template-desc">Scrape property listings with price, beds, baths, and sq footage</div>
+        <div class="template-columns">
+          <span class="column-tag">Price</span>
+          <span class="column-tag">Address</span>
+          <span class="column-tag">Beds</span>
+          <span class="column-tag">Baths</span>
+          <span class="column-tag">Sq Ft</span>
+        </div>
+      </div>
+      <div class="use-btn">Use →</div>
+    </div>
+  </div>
+
+  <div class="template-card">
+    <div class="template-header">
+      <div class="template-icon">💼</div>
+      <div class="template-info">
+        <div class="template-name">LinkedIn Job Posts</div>
+        <div class="template-desc">Collect job titles, companies, locations, and posting dates</div>
+        <div class="template-columns">
+          <span class="column-tag">Job Title</span>
+          <span class="column-tag">Company</span>
+          <span class="column-tag">Location</span>
+          <span class="column-tag">Posted Date</span>
+          <span class="column-tag">Applicants</span>
+        </div>
+      </div>
+      <div class="use-btn">Use →</div>
+    </div>
+  </div>
+
+  <div class="template-card">
+    <div class="template-header">
+      <div class="template-icon">🗣️</div>
+      <div class="template-info">
+        <div class="template-name">Reddit Discussions</div>
+        <div class="template-desc">Extract post titles, upvotes, comments, and subreddit info</div>
+        <div class="template-columns">
+          <span class="column-tag">Title</span>
+          <span class="column-tag">Upvotes</span>
+          <span class="column-tag">Comments</span>
+          <span class="column-tag">Author</span>
+          <span class="column-tag">Subreddit</span>
+        </div>
+      </div>
+      <div class="use-btn">Use →</div>
+    </div>
+  </div>
+</body>
+</html>

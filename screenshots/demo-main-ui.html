@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapeFlow Screenshot - Main UI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      width: 380px;
+      min-height: 500px;
+      padding: 16px;
+    }
+    .header {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #334155;
+    }
+    .header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header .url {
+      font-size: 12px;
+      color: #64748b;
+    }
+    .btn {
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+      width: 100%;
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #e2e8f0;
+    }
+    .config-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .config-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .config-name {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .badge-green {
+      background: #10b98120;
+      color: #34d399;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+    }
+    .config-meta {
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+    .config-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-success {
+      background: #10b981;
+      color: white;
+    }
+    .divider {
+      height: 1px;
+      background: #334155;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🕸️ ScrapeFlow</h1>
+    <span class="url">amazon.com</span>
+  </div>
+
+  <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+    <button class="btn btn-primary">+ New Scraper</button>
+    <button class="btn btn-secondary" style="min-width: 90px;">📋 Templates</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+    <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 500;">Scrapers for this site</span>
+    <span style="background: #3b82f620; color: #60a5fa; padding: 2px 8px; border-radius: 12px; font-size: 11px;">2</span>
+  </div>
+
+  <div class="config-card">
+    <div class="config-card-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="config-name">Amazon Product Scraper</span>
+        <span class="badge-green">📄 Multi-page</span>
+      </div>
+    </div>
+    <div class="config-meta">
+      4 columns • up to 10 pages • amazon.com
+    </div>
+    <div class="config-actions">
+      <button class="btn btn-success">▶ Run</button>
+      <button class="btn btn-secondary">Edit</button>
+      <button class="btn btn-secondary">Export</button>
+    </div>
+  </div>
+
+  <div class="config-card">
+    <div class="config-card-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="config-name">Best Sellers</span>
+      </div>
+    </div>
+    <div class="config-meta">
+      3 columns • single page • amazon.com
+    </div>
+    <div class="config-actions">
+      <button class="btn btn-success">▶ Run</button>
+      <button class="btn btn-secondary">Edit</button>
+      <button class="btn btn-secondary">Export</button>
+    </div>
+  </div>
+</body>
+</html>
