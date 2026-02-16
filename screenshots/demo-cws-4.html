@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapeFlow Screenshot 4 - Templates</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      width: 1280px;
+      height: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    
+    /* Left side - Extension */
+    .extension-side {
+      width: 400px;
+    }
+    .extension-popup {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .popup-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-secondary { background: #334155; color: #e2e8f0; }
+    .category-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+    .category-tab {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      background: #334155;
+      color: #e2e8f0;
+    }
+    .category-tab.active {
+      background: #3b82f6;
+    }
+    .template-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .template-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .template-icon {
+      font-size: 28px;
+    }
+    .template-info {
+      flex: 1;
+    }
+    .template-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: #f8fafc;
+      margin-bottom: 2px;
+    }
+    .template-desc {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .template-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .column-tag {
+      background: #0f172a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      color: #e2e8f0;
+    }
+    .use-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    /* Right side - Features */
+    .features-side {
+      color: white;
+      max-width: 500px;
+      padding-top: 20px;
+    }
+    .features-side h2 {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: #1e293b;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .feature h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      color: #f8fafc;
+    }
+    .feature p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .template-list {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .template-badge {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="extension-side">
+      <div class="extension-popup">
+        <div class="popup-header">
+          <button class="btn btn-secondary">← Back</button>
+          <span style="font-weight: 600;">Templates</span>
+        </div>
+
+        <div class="category-tabs">
+          <span class="category-tab active">All</span>
+          <span class="category-tab">E-Commerce</span>
+          <span class="category-tab">Real Estate</span>
+          <span class="category-tab">Jobs</span>
+        </div>
+
+        <div class="template-card">
+          <div class="template-header">
+            <div class="template-icon">🛒</div>
+            <div class="template-info">
+              <div class="template-name">Amazon Products</div>
+              <div class="template-desc">Extract listings from Amazon search results</div>
+              <div class="template-columns">
+                <span class="column-tag">Title</span>
+                <span class="column-tag">Price</span>
+                <span class="column-tag">Rating</span>
+                <span class="column-tag">Reviews</span>
+              </div>
+            </div>
+            <div class="use-btn">Use →</div>
+          </div>
+        </div>
+
+        <div class="template-card">
+          <div class="template-header">
+            <div class="template-icon">🏠</div>
+            <div class="template-info">
+              <div class="template-name">Zillow Listings</div>
+              <div class="template-desc">Scrape real estate listings</div>
+              <div class="template-columns">
+                <span class="column-tag">Price</span>
+                <span class="column-tag">Address</span>
+                <span class="column-tag">Beds/Baths</span>
+              </div>
+            </div>
+            <div class="use-btn">Use →</div>
+          </div>
+        </div>
+
+        <div class="template-card">
+          <div class="template-header">
+            <div class="template-icon">💼</div>
+            <div class="template-info">
+              <div class="template-name">LinkedIn Jobs</div>
+              <div class="template-desc">Collect job postings</div>
+              <div class="template-columns">
+                <span class="column-tag">Title</span>
+                <span class="column-tag">Company</span>
+                <span class="column-tag">Location</span>
+              </div>
+            </div>
+            <div class="use-btn">Use →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="features-side">
+      <h2>Pre-Built Templates</h2>
+      
+      <div class="feature">
+        <div class="feature-icon">🚀</div>
+        <div>
+          <h3>Start in Seconds</h3>
+          <p>No setup required. Templates come with pre-configured selectors for popular websites.</p>
+        </div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <div>
+          <h3>Tested & Reliable</h3>
+          <p>Each template is tested to ensure it extracts the right data every time.</p>
+        </div>
+      </div>
+      
+      <div class="template-list">
+        <div class="template-badge">🛒 Amazon</div>
+        <div class="template-badge">🏠 Zillow</div>
+        <div class="template-badge">💼 LinkedIn</div>
+        <div class="template-badge">🗣️ Reddit</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

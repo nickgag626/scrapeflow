@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapeFlow Screenshot 1</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      width: 1280px;
+      height: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Background pattern */
+    .bg-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+      background-image: 
+        radial-gradient(circle at 20% 80%, #3b82f6 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, #10b981 0%, transparent 50%);
+    }
+    
+    /* Main content */
+    .content {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      z-index: 1;
+    }
+    
+    /* Left side - Text */
+    .text-side {
+      color: white;
+      max-width: 500px;
+    }
+    .text-side h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-side p {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .feature-list {
+      list-style: none;
+    }
+    .feature-list li {
+      font-size: 16px;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feature-list li::before {
+      content: "✓";
+      color: #10b981;
+      font-weight: bold;
+    }
+    
+    /* Right side - Extension Popup */
+    .popup-container {
+      position: relative;
+    }
+    .extension-popup {
+      width: 380px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .popup-header {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #334155;
+    }
+    .popup-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .popup-header .url {
+      font-size: 12px;
+      color: #64748b;
+    }
+    .btn {
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+      width: 100%;
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #e2e8f0;
+    }
+    .config-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .config-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .config-name {
+      font-weight: 500;
+      font-size: 14px;
+      color: #f8fafc;
+    }
+    .badge-green {
+      background: #10b98120;
+      color: #34d399;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+    }
+    .config-meta {
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+    .config-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-success {
+      background: #10b981;
+      color: white;
+    }
+    .chrome-icon {
+      position: absolute;
+      top: -40px;
+      right: -20px;
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern"></div>
+  
+  <div class="content">
+    <div class="text-side">
+      <h1>ScrapeFlow</h1>
+      <p>Extract data from any website in 30 seconds. No coding required.</p>
+      <ul class="feature-list">
+        <li>Point-and-click data extraction</li>
+        <li>Auto-detect similar items</li>
+        <li>Export to CSV/JSON</li>
+        <li>Free forever plan</li>
+      </ul>
+    </div>
+    
+    <div class="popup-container">
+      <div class="chrome-icon">🕸️</div>
+      <div class="extension-popup">
+        <div class="popup-header">
+          <h2>🕸️ ScrapeFlow</h2>
+          <span class="url">amazon.com</span>
+        </div>
+        
+        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+          <button class="btn btn-primary">+ New Scraper</button>
+          <button class="btn btn-secondary" style="min-width: 90px;">📋 Templates</button>
+        </div>
+        
+        <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 500; margin: 16px 0 12px;">
+          Scrapers for this site
+        </div>
+        
+        <div class="config-card">
+          <div class="config-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="config-name">Amazon Product Scraper</span>
+              <span class="badge-green">📄 Multi-page</span>
+            </div>
+          </div>
+          <div class="config-meta">4 columns • up to 10 pages</div>
+          <div class="config-actions">
+            <button class="btn btn-success">▶ Run</button>
+            <button class="btn btn-secondary">Edit</button>
+            <button class="btn btn-secondary">Export</button>
+          </div>
+        </div>
+        
+        <div class="config-card">
+          <div class="config-header">
+            <span class="config-name">Best Sellers</span>
+          </div>
+          <div class="config-meta">3 columns • single page</div>
+          <div class="config-actions">
+            <button class="btn btn-success">▶ Run</button>
+            <button class="btn btn-secondary">Edit</button>
+            <button class="btn btn-secondary">Export</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
