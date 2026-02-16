@@ -1,4 +1,4 @@
-import { chromium, Browser, BrowserContext, Page } from 'playwright';
+import { chromium } from 'playwright';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -79,7 +79,7 @@ async function testExtension() {
   console.log('\n✅ Test completed');
 }
 
-async function getExtensionId(browser: Browser, extensionPath: string): Promise<string | null> {
+async function getExtensionId(browser, extensionPath) {
   const context = await browser.newContext();
   const page = await context.newPage();
   
@@ -99,7 +99,7 @@ async function getExtensionId(browser: Browser, extensionPath: string): Promise<
     await context.close();
     
     // Find ScrapeFlow extension
-    const scrapeFlowExt = extensions.find((e: any) => e.name?.includes('ScrapeFlow'));
+    const scrapeFlowExt = extensions.find((e) => e.name?.includes('ScrapeFlow'));
     return scrapeFlowExt?.id || null;
   } catch (error) {
     await context.close();
