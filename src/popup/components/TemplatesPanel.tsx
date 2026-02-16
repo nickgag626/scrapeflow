@@ -12,6 +12,8 @@ interface Template {
   category: 'ecommerce' | 'realestate' | 'jobs' | 'social' | 'news';
   icon: string;
   examples: string[];
+  defaultSelectors?: { columnName: string; selector: string; dataType: string }[];
+  defaultUrl?: string;
 }
 
 const TEMPLATES: Template[] = [
@@ -21,7 +23,13 @@ const TEMPLATES: Template[] = [
     description: 'Extract product names, prices, ratings, and images from Amazon search results',
     category: 'ecommerce',
     icon: '🛒',
-    examples: ['Product Title', 'Price', 'Rating', 'Number of Reviews', 'Prime Eligible']
+    examples: ['Product Title', 'Price', 'Rating', 'Number of Reviews', 'Prime Eligible'],
+    defaultSelectors: [
+      { columnName: 'Title', selector: '[data-component-type="s-search-result"] h2 a span', dataType: 'text' },
+      { columnName: 'Price', selector: '[data-component-type="s-search-result"] .a-price-whole', dataType: 'text' },
+      { columnName: 'Rating', selector: '[data-component-type="s-search-result"] .a-icon-alt', dataType: 'text' }
+    ],
+    defaultUrl: 'https://www.amazon.com/s?k=products'
   },
   {
     id: 'zillow-listings',
@@ -29,7 +37,13 @@ const TEMPLATES: Template[] = [
     description: 'Scrape property listings with price, beds, baths, and square footage',
     category: 'realestate',
     icon: '🏠',
-    examples: ['Price', 'Address', 'Beds', 'Baths', 'Sq Ft']
+    examples: ['Price', 'Address', 'Beds', 'Baths', 'Sq Ft'],
+    defaultSelectors: [
+      { columnName: 'Price', selector: '[data-testid="price"]', dataType: 'text' },
+      { columnName: 'Address', selector: '[data-testid="property-card-addr"]', dataType: 'text' },
+      { columnName: 'Beds', selector: '[data-testid="bed-bath-item"]:first-child', dataType: 'text' }
+    ],
+    defaultUrl: 'https://www.zillow.com/homes/'
   },
   {
     id: 'linkedin-jobs',
@@ -37,7 +51,13 @@ const TEMPLATES: Template[] = [
     description: 'Collect job titles, companies, locations, and posting dates',
     category: 'jobs',
     icon: '💼',
-    examples: ['Job Title', 'Company', 'Location', 'Posted Date', 'Applicants']
+    examples: ['Job Title', 'Company', 'Location', 'Posted Date', 'Applicants'],
+    defaultSelectors: [
+      { columnName: 'Title', selector: '.job-card-list__title', dataType: 'text' },
+      { columnName: 'Company', selector: '.job-card-container__company-name', dataType: 'text' },
+      { columnName: 'Location', selector: '.job-card-container__metadata-item', dataType: 'text' }
+    ],
+    defaultUrl: 'https://www.linkedin.com/jobs/'
   },
   {
     id: 'reddit-posts',
@@ -45,7 +65,13 @@ const TEMPLATES: Template[] = [
     description: 'Extract post titles, upvotes, comments, and subreddit info',
     category: 'social',
     icon: '🗣️',
-    examples: ['Title', 'Upvotes', 'Comments', 'Author', 'Subreddit']
+    examples: ['Title', 'Upvotes', 'Comments', 'Author', 'Subreddit'],
+    defaultSelectors: [
+      { columnName: 'Title', selector: '[data-testid="post-container"] h3', dataType: 'text' },
+      { columnName: 'Upvotes', selector: '[data-testid="post-container"] [data-click-id="upvote"]', dataType: 'text' },
+      { columnName: 'Comments', selector: '[data-testid="post-container"] [data-click-id="comments"]', dataType: 'text' }
+    ],
+    defaultUrl: 'https://www.reddit.com/'
   },
   {
     id: 'news-articles',
@@ -53,7 +79,13 @@ const TEMPLATES: Template[] = [
     description: 'Scrape news headlines, summaries, authors, and publish dates',
     category: 'news',
     icon: '📰',
-    examples: ['Headline', 'Summary', 'Author', 'Published', 'Source']
+    examples: ['Headline', 'Summary', 'Author', 'Published', 'Source'],
+    defaultSelectors: [
+      { columnName: 'Headline', selector: 'h2 a, h3 a, article h2', dataType: 'text' },
+      { columnName: 'Summary', selector: 'article p, .summary, .excerpt', dataType: 'text' },
+      { columnName: 'Author', selector: '.author, [rel="author"], .byline', dataType: 'text' }
+    ],
+    defaultUrl: 'https://news.ycombinator.com/'
   },
   {
     id: 'ebay-listings',
@@ -61,9 +93,17 @@ const TEMPLATES: Template[] = [
     description: 'Extract product info, current bid, buy it now price, and seller',
     category: 'ecommerce',
     icon: '🏷️',
-    examples: ['Title', 'Current Price', 'Bids', 'Time Left', 'Seller']
+    examples: ['Title', 'Current Price', 'Bids', 'Time Left', 'Seller'],
+    defaultSelectors: [
+      { columnName: 'Title', selector: '.s-item__title', dataType: 'text' },
+      { columnName: 'Price', selector: '.s-item__price', dataType: 'text' },
+      { columnName: 'Seller', selector: '.s-item__seller-info-text', dataType: 'text' }
+    ],
+    defaultUrl: 'https://www.ebay.com/sch/i.html'
   }
 ];
+
+export { TEMPLATES };
 
 const CATEGORIES = [
   { id: 'all', name: 'All Templates', icon: '📋' },

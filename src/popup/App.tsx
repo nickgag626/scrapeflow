@@ -5,7 +5,7 @@ import { ConfigEditor } from './components/ConfigEditor';
 import { DataPreview } from './components/DataPreview';
 import { PaginationSetup } from './components/PaginationSetup';
 import { ExportPanel } from './components/ExportPanel';
-import { TemplatesPanel } from './components/TemplatesPanel';
+import { TemplatesPanel, TEMPLATES } from './components/TemplatesPanel';
 
 type View = 'list' | 'edit' | 'preview' | 'pagination' | 'export' | 'templates';
 
@@ -49,18 +49,32 @@ function App() {
   }
 
   async function getCurrentUrl() {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if (tab?.url) {
-      setCurrentUrl(tab.url);
+    try {
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      if (tab?.url) {
+        setCurrentUrl(tab.url);
+      }
+    } catch (error) {
+      console.error('Failed to get current URL:', error);
+      setCurrentUrl('');
     }
   }
 
   function createNewConfig() {
+    let domain = 'example.com';
+    try {
+      if (currentUrl) {
+        domain = new URL(currentUrl).hostname;
+      }
+    } catch (e) {
+      console.error('Invalid URL:', currentUrl);
+    }
+    
     const newConfig: ScraperConfig = {
       id: crypto.randomUUID(),
       name: `Scraper ${configs.length + 1}`,
-      url: currentUrl,
-      domain: new URL(currentUrl).hostname,
+      url: currentUrl || 'https://example.com',
+      domain,
       selectors: [],
       pagination: { ...DEFAULT_PAGINATION },
       exportFormat: 'csv',
@@ -169,7 +183,19 @@ function App() {
     // First, navigate to the target URL if different
     if (tab.url !== config.url) {
       await chrome.tabs.update(tab.id, { url: config.url });
-      await new Promise(resolve => setTimeout(resolve, 3000)); // Wait for page load
+      // Wait for page load with a more robust check
+      let attempts = 0;
+      const maxAttempts = 30; // 30 seconds max
+      while (attempts < maxAttempts) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const [updatedTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (updatedTab?.status === 'complete' && updatedTab.url === config.url) {
+          break;
+        }
+        attempts++;
+      }
+      // Extra wait for any JS rendering
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
 
     const response = await chrome.tabs.sendMessage(tab.id, {
@@ -249,9 +275,33 @@ function App() {
     return [headers.join(','), ...csvRows].join('\n');
   }
 
-  function applyTemplate(_templateId: string) {
-    // Template logic would go here
-    createNewConfig();
+  function applyTemplate(templateId: string) {
+    const template = TEMPLATES.find(t => t.id === templateId);
+    if (!template) {
+      createNewConfig();
+      return;
+    }
+    
+    const newConfig: ScraperConfig = {
+      id: crypto.randomUUID(),
+      name: template.name,
+      url: template.defaultUrl || currentUrl || 'https://example.com',
+      domain: template.defaultUrl ? new URL(template.defaultUrl).hostname : (currentUrl ? new URL(currentUrl).hostname : 'example.com'),
+      selectors: template.defaultSelectors?.map((s) => ({
+        id: crypto.randomUUID(),
+        columnName: s.columnName,
+        selector: s.selector,
+        selectorType: 'css' as const,
+        dataType: s.dataType as 'text' | 'number' | 'html' | 'attribute'
+      })) || [],
+      pagination: { ...DEFAULT_PAGINATION },
+      exportFormat: 'csv',
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    };
+    
+    setEditingConfig(newConfig);
+    setView('edit');
   }
 
   return (
