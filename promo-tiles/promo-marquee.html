@@ -48,8 +48,15 @@
     }
     
     .logo {
-      font-size: 64px;
+      width: 64px;
+      height: 64px;
       margin-bottom: 20px;
+    }
+    
+    .logo svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
     
     .title {
@@ -195,7 +202,25 @@
   
   <div class="content">
     <div class="text-side">
-      <div class="logo">🕸️</div>
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="10" fill="url(#grad)"/>
+          <line x1="50" y1="15" x2="50" y2="5" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="50" y1="85" x2="50" y2="95" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="15" y1="50" x2="5" y2="50" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="85" y1="50" x2="95" y2="50" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="25" y1="25" x2="18" y2="18" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="75" y1="25" x2="82" y2="18" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="25" y1="75" x2="18" y2="82" stroke="url(#grad)" stroke-width="4"/>
+          <line x1="75" y1="75" x2="82" y2="82" stroke="url(#grad)" stroke-width="4"/>
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
       <div class="title">ScrapeFlow</div>
       <div class="tagline">Extract data from any website in 30 seconds</div>
       <div class="features">

@@ -14,20 +14,41 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       box-shadow: 
         inset 0 2px 4px rgba(255,255,255,0.3),
         inset 0 -2px 4px rgba(0,0,0,0.2),
         0 4px 12px rgba(59, 130, 246, 0.4);
     }
     
-    .icon {
-      font-size: 72px;
+    .spider-icon {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .spider-icon svg {
+      width: 100%;
+      height: 100%;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
   </style>
 </head>
 <body>
-  <div class="icon">🕸️</div>
+  <div class="spider-icon">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="8" fill="white"/>
+      <line x1="50" y1="20" x2="50" y2="10" stroke="white" stroke-width="3"/>
+      <line x1="50" y1="80" x2="50" y2="90" stroke="white" stroke-width="3"/>
+      <line x1="20" y1="50" x2="10" y2="50" stroke="white" stroke-width="3"/>
+      <line x1="80" y1="50" x2="90" y2="50" stroke="white" stroke-width="3"/>
+      <line x1="29" y1="29" x2="22" y2="22" stroke="white" stroke-width="3"/>
+      <line x1="71" y1="29" x2="78" y2="22" stroke="white" stroke-width="3"/>
+      <line x1="29" y1="71" x2="22" y2="78" stroke="white" stroke-width="3"/>
+      <line x1="71" y1="71" x2="78" y2="78" stroke="white" stroke-width="3"/>
+      <circle cx="50" cy="35" r="3" fill="white"/>
+      <circle cx="50" cy="65" r="3" fill="white"/>
+      <circle cx="35" cy="50" r="3" fill="white"/>
+      <circle cx="65" cy="50" r="3" fill="white"/>
+    </svg>
+  </div>
 </body>
 </html>
