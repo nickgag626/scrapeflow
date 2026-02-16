@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapeFlow Marquee</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1400px;
+      height: 560px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .glow-left {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+      top: -100px;
+      left: -200px;
+    }
+    
+    .glow-right {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
+      bottom: -150px;
+      right: -100px;
+    }
+    
+    .content {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      z-index: 1;
+    }
+    
+    .text-side {
+      color: white;
+    }
+    
+    .logo {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 72px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    
+    .tagline {
+      font-size: 28px;
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
+    
+    .features {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      color: #e2e8f0;
+    }
+    
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    
+    /* Mock browser */
+    .browser-mock {
+      width: 520px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    
+    .browser-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #0f172a;
+      border-bottom: 1px solid #334155;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #22c55e; }
+    
+    .url-bar {
+      flex: 1;
+      background: #1e293b;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: #64748b;
+      margin-left: 12px;
+    }
+    
+    .browser-content {
+      padding: 20px;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .product {
+      background: #334155;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    
+    .product-img {
+      height: 60px;
+      background: #475569;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .product-line {
+      height: 8px;
+      background: #475569;
+      border-radius: 2px;
+      margin-bottom: 4px;
+    }
+    
+    .product-line.short {
+      width: 60%;
+    }
+    
+    .export-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+    }
+    
+    .badge {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #10b981;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+  <div class="badge">BETA</div>
+  
+  <div class="content">
+    <div class="text-side">
+      <div class="logo">🕸️</div>
+      <div class="title">ScrapeFlow</div>
+      <div class="tagline">Extract data from any website in 30 seconds</div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <span>Point & Click</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <span>Privacy First</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <span>CSV/JSON Export</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="browser-mock">
+      <div class="browser-header">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <div class="url-bar">amazon.com/s?k=wireless+headphones</div>
+      </div>
+      <div class="browser-content">
+        <div class="product-grid">
+          <div class="product">
+            <div class="product-img"></div>
+            <div class="product-line"></div>
+            <div class="product-line short"></div>
+          </div>
+          <div class="product" style="outline: 2px solid #3b82f6; outline-offset: 2px;">
+            <div class="product-img"></div>
+            <div class="product-line"></div>
+            <div class="product-line short"></div>
+          </div>
+          <div class="product">
+            <div class="product-img"></div>
+            <div class="product-line"></div>
+            <div class="product-line short"></div>
+          </div>
+        </div>
+        <div class="export-btn">Export 24 items to CSV →</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
