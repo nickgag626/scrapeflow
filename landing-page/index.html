@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScrapeFlow - Web Data Extraction Made Simple</title>
+  <title>ScrapeFlow - Extract Data From Any Website in 30 Seconds</title>
+  <meta name="description" content="Point-and-click web scraping. Extract data from any website to CSV/JSON. No coding required. The affordable alternative to Octoparse.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -15,173 +16,443 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 0 20px;
     }
-    header {
+    
+    /* Hero */
+    .hero {
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px 60px;
     }
-    .logo {
-      font-size: 64px;
+    .hero-badge {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
       margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 16px;
       background: linear-gradient(135deg, #3b82f6, #60a5fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      line-height: 1.1;
     }
-    .tagline {
+    .hero-subtitle {
       font-size: 24px;
       color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 0 auto 40px;
     }
     .cta-button {
       display: inline-block;
       background: #3b82f6;
       color: white;
-      padding: 16px 40px;
+      padding: 18px 48px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       font-size: 18px;
-      margin-top: 32px;
       transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
     }
     .cta-button:hover {
       background: #2563eb;
       transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
     }
-    .features {
+    .cta-note {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #64748b;
+    }
+    
+    /* Social Proof */
+    .social-proof {
+      background: rgba(30, 41, 59, 0.5);
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid #334155;
+      border-bottom: 1px solid #334155;
+    }
+    .social-proof p {
+      font-size: 18px;
+      color: #94a3b8;
+      font-style: italic;
+    }
+    
+    /* How It Works */
+    .how-it-works {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .how-it-works h2 {
+      font-size: 40px;
+      margin-bottom: 60px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .step {
+      padding: 30px;
+    }
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+    .step h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .step p {
+      color: #94a3b8;
+    }
+    
+    /* Use Cases */
+    .use-cases {
+      padding: 80px 20px;
+      background: rgba(15, 23, 42, 0.5);
+    }
+    .use-cases h2 {
+      font-size: 40px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .cases-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      padding: 60px 0;
+      gap: 30px;
     }
-    .feature {
-      background: rgba(30, 41, 59, 0.5);
-      padding: 32px;
-      border-radius: 12px;
+    .case-card {
+      background: #1e293b;
       border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 30px;
     }
-    .feature-icon {
+    .case-icon {
       font-size: 40px;
       margin-bottom: 16px;
     }
-    .feature h3 {
+    .case-card h3 {
       font-size: 20px;
-      margin-bottom: 12px;
-      color: #f8fafc;
+      margin-bottom: 8px;
     }
-    .feature p {
+    .case-card p {
       color: #94a3b8;
     }
-    .pricing {
+    
+    /* Comparison */
+    .comparison {
+      padding: 80px 20px;
       text-align: center;
-      padding: 60px 0;
     }
-    .pricing h2 {
-      font-size: 36px;
+    .comparison h2 {
+      font-size: 40px;
       margin-bottom: 40px;
     }
     .pricing-cards {
       display: flex;
       justify-content: center;
-      gap: 24px;
+      gap: 30px;
       flex-wrap: wrap;
+      margin-bottom: 40px;
     }
     .pricing-card {
-      background: rgba(30, 41, 59, 0.5);
-      padding: 40px;
+      background: #1e293b;
+      border: 2px solid #334155;
       border-radius: 12px;
-      border: 1px solid #334155;
+      padding: 40px;
       width: 300px;
     }
     .pricing-card.popular {
       border-color: #3b82f6;
       transform: scale(1.05);
     }
+    .pricing-card.popular .badge {
+      background: #3b82f6;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
     .price {
       font-size: 48px;
       font-weight: 700;
-      color: #f8fafc;
-      margin: 16px 0;
+      margin: 20px 0;
     }
     .price span {
       font-size: 16px;
       color: #64748b;
     }
-    footer {
+    .pricing-card ul {
+      list-style: none;
+      text-align: left;
+    }
+    .pricing-card li {
+      padding: 8px 0;
+      color: #94a3b8;
+    }
+    .pricing-card li::before {
+      content: "✓ ";
+      color: #10b981;
+      font-weight: 700;
+    }
+    .vs-text {
+      font-size: 20px;
+      color: #64748b;
+      margin: 20px 0;
+    }
+    .competitor-price {
+      text-decoration: line-through;
+      color: #64748b;
+    }
+    
+    /* FAQ */
+    .faq {
+      padding: 80px 20px;
+      background: rgba(15, 23, 42, 0.5);
+    }
+    .faq h2 {
+      font-size: 40px;
       text-align: center;
+      margin-bottom: 60px;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-item h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #f8fafc;
+    }
+    .faq-item p {
+      color: #94a3b8;
+    }
+    
+    /* Footer CTA */
+    .footer-cta {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .footer-cta h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .footer-cta p {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-bottom: 40px;
+    }
+    
+    /* Footer */
+    footer {
       padding: 40px;
       border-top: 1px solid #334155;
+      text-align: center;
       color: #64748b;
+    }
+    footer a {
+      color: #64748b;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      color: #e2e8f0;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 36px; }
+      .hero-subtitle { font-size: 18px; }
+      .how-it-works h2, .use-cases h2, .comparison h2, .faq h2 { font-size: 28px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">🕸️</div>
-      <h1>ScrapeFlow</h1>
-      <p class="tagline">
-        Point-and-click web scraping. Extract data from any website to CSV/JSON. 
-        No coding required.
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">🚀 Now on Chrome Web Store</div>
+      <h1>Extract Data From Any Website in 30 Seconds</h1>
+      <p class="hero-subtitle">
+        Point-and-click web scraping. No coding. No complex setup. 
+        Just click the data you want and export to CSV/JSON.
       </p>
-      <a href="#" class="cta-button">Add to Chrome - It's Free</a>
-    </header>
+      <a href="https://chrome.google.com/webstore" class="cta-button">
+        Add to Chrome — It's Free
+      </a>
+      <p class="cta-note">✓ 30-second setup  ✓ No credit card required  ✓ Free forever plan</p>
+    </div>
+  </section>
 
-    <section class="features">
-      <div class="feature">
-        <div class="feature-icon">👆</div>
-        <h3>Point & Click</h3>
-        <p>Click any element and we automatically find all similar items. No CSS selectors to write.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📄</div>
-        <h3>Multi-Page Support</h3>
-        <p>Scrape paginated data with click pagination, infinite scroll, or URL patterns.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📊</div>
-        <h3>Export Anywhere</h3>
-        <p>Download as CSV for Excel/Google Sheets or JSON for developers.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🔒</div>
-        <h3>Privacy First</h3>
-        <p>All processing happens in your browser. Your data never leaves your computer.</p>
-      </div>
-    </section>
+  <!-- Social Proof -->
+  <section class="social-proof">
+    <div class="container">
+      <p>"Saved me 5 hours of copy-pasting every week" — Marketing Analyst at Tech Startup</p>
+    </div>
+  </section>
 
-    <section class="pricing">
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Navigate</h3>
+          <p>Go to any website with data you want to extract</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Click</h3>
+          <p>Click the data element. We auto-detect all similar items.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Export</h3>
+          <p>Download as CSV for Excel or JSON for developers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="use-cases">
+    <div class="container">
+      <h2>What You Can Do With ScrapeFlow</h2>
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-icon">🛒</div>
+          <h3>Price Monitoring</h3>
+          <p>Track competitor prices on Amazon, eBay, and any e-commerce site. Get alerts when prices drop.</p>
+        </div>
+        <div class="case-card">
+          <div class="case-icon">🏠</div>
+          <h3>Lead Generation</h3>
+          <p>Build prospect lists from Zillow, LinkedIn, and directories. Extract contacts automatically.</p>
+        </div>
+        <div class="case-card">
+          <div class="case-icon">📊</div>
+          <h3>Market Research</h3>
+          <p>Analyze job postings, product reviews, and trends. Collect data for business intelligence.</p>
+        </div>
+        <div class="case-card">
+          <div class="case-icon">📰</div>
+          <h3>Content Aggregation</div>
+          <p>Collect news articles, blog posts, and social content. Build curated newsletters.</p>
+        </div>
+        <div class="case-card">
+          <div class="case-icon">🔬</div>
+          <h3>Academic Research</h3>
+          <p>Gather datasets for analysis. Build training data for ML models. Automate literature reviews.</p>
+        </div>
+        <div class="case-card">
+          <div class="case-icon">💼</div>
+          <h3>Job Market Analysis</h3>
+          <p>Track job postings across platforms. Analyze salary trends and in-demand skills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="comparison">
+    <div class="container">
       <h2>Simple Pricing</h2>
       <div class="pricing-cards">
         <div class="pricing-card">
           <h3>Free</h3>
-          <div class="price">$0</div>
-          <p>✓ Unlimited single-page scraping</p>
-          <p>✓ CSV/JSON export</p>
-          <p>✓ All templates</p>
+          <div class="price">$0</span></div>
+          <ul>
+            <li>Unlimited single-page scraping</li>
+            <li>CSV & JSON export</li>
+            <li>All templates included</li>
+            <li>Basic support</li>
+          </ul>
         </div>
         <div class="pricing-card popular">
+          <div class="badge">MOST POPULAR</div>
           <h3>Pro</h3>
           <div class="price">$19<span>/mo</span></div>
-          <p>✓ Everything in Free</p>
-          <p>✓ Multi-page scraping</p>
-          <p>✓ Scheduled runs</p>
-          <p>✓ API access</p>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Multi-page pagination</li>
+            <li>Scheduled scraping</li>
+            <li>API access</li>
+            <li>Priority support</li>
+          </ul>
         </div>
       </div>
-    </section>
+      <p class="vs-text">Compare to Octoparse <span class="competitor-price">$75-208/mo</span> or ParseHub <span class="competitor-price">$149/mo</span></p>
+      <a href="https://chrome.google.com/webstore" class="cta-button">Get Started Free</a>
+    </div>
+  </section>
 
-    <footer>
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Is this legal?</h3>
+          <p>ScrapeFlow only extracts publicly visible data. Always respect website terms of service and robots.txt.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need to know how to code?</h3>
+          <p>Nope! ScrapeFlow is built for everyone. If you can use Excel, you can use ScrapeFlow.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is my data safe?</h3>
+          <p>Yes. All processing happens in your browser. We never see or store your data.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What's the catch with the free plan?</h3>
+          <p>No catch. The free plan includes unlimited single-page scraping. Upgrade to Pro for multi-page and scheduling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="footer-cta">
+    <div class="container">
+      <h2>Ready to Stop Copy-Pasting?</h2>
+      <p>Join 10,000+ users saving hours every week with automated data extraction.</p>
+      <a href="https://chrome.google.com/webstore" class="cta-button">Install ScrapeFlow Free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
       <p>© 2026 ScrapeFlow. The Octoparse alternative.</p>
-      <p><a href="PRIVACY_POLICY.md" style="color: #64748b;">Privacy Policy</a></p>
-    </footer>
-  </div>
+      <p>
+        <a href="mailto:support@scrapeflow.io">Support</a> |
+        <a href="https://github.com/nickgag626/scrapeflow">GitHub</a> |
+        <a href="PRIVACY_POLICY.md">Privacy</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
