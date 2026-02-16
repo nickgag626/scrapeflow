@@ -1,53 +1,45 @@
 # Privacy Policy for ScrapeFlow
 
-Last updated: February 16, 2026
+**Effective Date:** February 16, 2026
 
 ## Overview
 
-ScrapeFlow is a web data extraction tool that operates entirely within your browser. We prioritize your privacy and data security.
+ScrapeFlow is a browser extension that allows users to extract data from websites. This privacy policy explains how we handle your data.
 
 ## Data Collection
 
-### What We Collect
-- **Extension Settings**: Your scraper configurations are stored locally in your browser using Chrome's storage API
-- **Website Data**: Data you choose to extract from websites is processed locally in your browser
-- **No Personal Data**: We do not collect personal information, browsing history, or website login credentials
+**ScrapeFlow does NOT collect any user data.**
 
-### What We Don't Collect
-- We do NOT collect your browsing history
-- We do NOT collect personal information
-- We do NOT collect website login credentials
-- We do NOT transmit extracted data to external servers (unless you explicitly choose to export)
-- We do NOT track your usage across websites
+- We do not collect personally identifiable information
+- We do not collect browsing history
+- We do not collect website content
+- We do not track user activity
+- We do not use cookies or analytics
 
-## Data Storage
+## How Your Data Is Handled
 
-All data is stored **locally on your device**:
-- Scraper configurations: Stored in Chrome's local storage
-- Extracted data: Stored temporarily in your browser during extraction
-- CSV/JSON exports: Saved directly to your computer
+All data processing happens **locally in your browser**:
 
-## Data Usage
-
+- Scraper configurations are stored using Chrome's local storage API
 - Extracted data is processed entirely within your browser
 - No data is sent to external servers
-- No analytics or tracking scripts are included
+- No data is shared with third parties
+- No data is sold to anyone
 
-## Third-Party Access
+## Permissions Explanation
 
-We do not share any data with third parties.
+**activeTab:** Required to access the current webpage content for data extraction.
 
-## Your Rights
+**storage:** Required to save your scraper configurations locally.
 
-You can:
-- Delete all stored data by uninstalling the extension
-- Export your data at any time
-- Clear stored configurations from the extension interface
+**scripting:** Required to inject scripts for element selection and data extraction.
+
+**Host permissions:** Required to access webpage content on sites you choose to scrape.
 
 ## Changes to This Policy
 
-We may update this privacy policy. Changes will be posted with a new effective date.
+If we make changes to this privacy policy, we will update the effective date above.
 
 ## Contact
 
-For privacy questions, contact: privacy@scrapeflow.io
+For questions about this privacy policy, contact: support@scrapeflow.io
